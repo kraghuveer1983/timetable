@@ -4,7 +4,9 @@
 ![SL PublicTransport Module](https://github.com/boghammar/MMM-SL-PublicTransport/blob/master/docs/MMM-SL-Screenshot.PNG)
 
 ## Get API key
-You need to obtain your own API key's from TrafikLab for the following API's
+You need to obtain your own API key's from TrafikLab in order to use this module. 
+API keys are free and are obtained by creating an account and a so-called project at [Trafiklab.se](https://trafiklab.se).
+You need to retrieve keys for the following API's:
 
 * [SL Realtidinformation 4](https://www.trafiklab.se/api/sl-realtidsinformation-4)
 * [SL Platsuppslag](https://www.trafiklab.se/api/sl-platsuppslag)
@@ -20,8 +22,11 @@ You need to obtain your own API key's from TrafikLab for the following API's
 2. Run ``npm install`` inside ``../modules/MMM-SL-PublicTransport/`` folder
 
 ## Configuration
-**Note**: In release 1.5 there is a major change of the configuration. Please read through carefully and update your configration appropriately. All features present in earlier releases are available but you need to redefine your configuration. The new configuration ``stations`` will allow you to define in more detail what you want to see. For examples see the section [How to use the stations parameter](#how-to-use-the-stations-parameter) below.
+**Note**: In release 1.5 there is a major change of the configuration. Please read through carefully and update your configration appropriately. 
+All features present in earlier releases are available but you need to redefine your configuration. The new configuration ``stations`` will 
+allow you to define in more detail what you want to see. For examples see the section [How to use the stations parameter](#how-to-use-the-stations-parameter) below.
 
+Keep in mind that your configuration should not exceed the Trafiklab quota of 10.000 API calls per month. You can find more examples on this below 
 ```
 modules: [
     ...
@@ -193,9 +198,10 @@ If you only want to see the departures "in to town" and your station has several
     ...
 ```
 
-## Set what times to update more frequently
-If you want the module to update departure
- times more frequently between certain hours use the ``highUpdateInterval`` config parameter. This is a feature that will preserve API calls to the TrafikLab API's.
+## Frequent update times
+If you want the module to update departure times more frequently between certain hours use the ``highUpdateInterval`` 
+config parameter. By using this parameter, you can reduce the refresh rate during 'quiet' hours, for example once every 6 minutes, 
+but still receive frequent updates (for example, every 2 minutes) when leaving for work of school in the morning.
 
 This parameter is used like this:
 
